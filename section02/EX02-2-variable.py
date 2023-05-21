@@ -32,9 +32,11 @@ print(address)
 
 '''
 여러값 할당
+    python을 사용하면 한 줄에 여러 변수에 값을 할당할 수 있다.
+ctrl + d 줄복사
 '''
 
-x y z = '피카츄''파이리''라이츄'
+x, y, z = "피카츄", "파이리", "라이츄"
 print(x)
 print(y)
 print(z)
