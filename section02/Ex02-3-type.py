@@ -10,8 +10,8 @@
 매핑 유형  : dict
 세트 유형 : set
 논리 유형 : bool
-바이너리 유형 : 1
-
+바이너리 유형 : bytes, bytearray
+없음 유형 : None
 '''
 # str
 x = 'Hello world'
