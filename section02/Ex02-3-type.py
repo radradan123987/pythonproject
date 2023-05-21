@@ -68,4 +68,3 @@ name = '피카츄'
 age = 27
 result = name + str(age)  #문자 + str(숫자) 형변환 필요
 print(result)
-q1
