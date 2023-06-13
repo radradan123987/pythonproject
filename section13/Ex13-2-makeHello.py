@@ -2,7 +2,7 @@
 
 open 함수 모드
      w(write mode) : 쓰기 전용모드 / 파일이 없으면 생성
-     t(text mode) : 해당 파일의
+     t(text mode) : 해당 파일의 데이터를 텍스트 파일로 인식하고 입출력
 
 '''
 file = open('hello.txt', 'wt', encoding='UTF-8')
