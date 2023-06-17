@@ -9,7 +9,7 @@ class HoldemPlayer:
     card7 = ''
 
     def __init__(self, card1, caed2):
-        self.caed1 = card1
+        self.card1 = card1
         self.card2 = caed2
 
     def get_card_info(self):
@@ -21,12 +21,7 @@ class HoldemPlayer:
         print('card6: {}'.format(self.card6))
         print('card7: {}'.format(self.card7))
 
-    @classmethod
-    def set_card1(cls, card):
-        cls.card1 = card
-    @classmethod
-    def set_card2(cls, card):
-        cls.card2 = card
+
     @classmethod
     def set_card3(cls, card):
         cls.card3 = card
@@ -38,7 +33,7 @@ class HoldemPlayer:
         cls.card5 = card
     @classmethod
     def set_card6(cls, card):
-        cls.card6 = card@classmethod
+        cls.card6 = card
     @classmethod
     def set_card7(cls, card):
         cls.card7 = card
@@ -59,6 +54,8 @@ print('>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<')
 print('1Round Player3 카드정보 >>>')
 player3.get_card_info()
 print('>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<')
+
+HoldemPlayer.set_card3('Heart2')
 
 print('2Round Player1 카드정보 >>>')
 player1.get_card_info()
