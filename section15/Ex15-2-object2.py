@@ -11,5 +11,5 @@ class Calculator:
 
 calc = Calculator()
 calc.input_expr()
-print('수식 결과는 {}입니다.')
+print('수식 결과는 {}입니다.'.format(calc.calculate()))
 
