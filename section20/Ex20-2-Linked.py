@@ -7,7 +7,7 @@ Ex20-2-Linked.py
 '''
 class Node:
     def __init__(self, data, next=None):
-        self,data = data
+        self.data = data
         self.next = next
 
 class LinkedList:
@@ -15,7 +15,7 @@ class LinkedList:
         self.head = None
 
     def add_node(self, data):
-        new_node = Node(data)
+        new_node = Node(data) # 새로운 노드 생성
 
         if self.head is None:
             self.head = new_node
@@ -44,7 +44,7 @@ class LinkedList:
         self.add_node(insert_data)
 
     def delete_node(self, del_data):
-        if self.haed is None:
+        if self.head is None:
             return
 
         if self.head.data == del_data:

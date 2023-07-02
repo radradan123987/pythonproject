@@ -38,14 +38,14 @@ class LinearList():
             print('데이터를 삽입할 범위를 벗어났습니다.')
             return
 
-            linear.append(None)
-            linearSize = len(linear)
+        linear.append(None)
+        linearSize = len(linear)
 
         for i in range(linearSize - 1, position, -1):
             linear[i] = linear[i - 1]
-            linear[i -1] = None
+            linear[i - 1] = None
 
-            linear[position] = data
+        linear[position] = data
 
     # 데이터 삭제
     def delete_data(self, position):
