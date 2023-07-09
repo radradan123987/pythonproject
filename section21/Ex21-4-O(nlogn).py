@@ -1,5 +1,5 @@
 '''
-Ex21-O(nlogn).py
+Ex21-4-O(nlogn).py
 
 O(NlogN)
     선형 로그 시간 복잡도, 병합 정렬 등의 알고리즘
