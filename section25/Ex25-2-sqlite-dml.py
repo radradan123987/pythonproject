@@ -3,10 +3,10 @@ Ex25-2-sqlite-dml.py
 '''
 
 import sqlite3
-'''
+
 conn =sqlite3.connect('hr.db')
 cur = conn.cursor()
-
+'''
 #데이터 삽입
 sql = "INSERT INTO employees " \
       "(first_name, last_name, email, " \
