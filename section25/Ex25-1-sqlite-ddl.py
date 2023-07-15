@@ -29,7 +29,8 @@ CREATE TABLE employees (
 )    
 ''')
 
-
+cur.close()
+conn.close()
 
 
 
