@@ -68,15 +68,14 @@ class BoardApp(tk.Tk):
         # py_board 데이터 불러오기
         rows = self.get_boardlist()
 
-        #
+        # 트리뷰 초기화
         self.treeview_boardlist.delete(*self.treeview_boardlist.get_children())
         self.treeview_boardlist.bind('<Double-Button-1>', self.onclick_view)
 
-        #
+        # 게시글 목록 출력
         for row in rows:
             self.treeview_boardlist.insert('', 'end', text='', values=row)
 
-    #
     def get_boardlist(self, keyword='', search_option=''):
         conn = sqlite3.connect('py_board.db')
         curs = conn.cursor()
@@ -129,7 +128,7 @@ class BoardApp(tk.Tk):
         search_option = self.combobox_search.get()
 
         # py_board 데이터 불러오기
-        rows = self.get_boardlist()
+        rows = self.get_boardlist(keyword, search_option)
 
         # 트리뷰 초기화
         self.treeview_boardlist.delete(*self.treeview_boardlist.get_children())
@@ -168,11 +167,11 @@ class BoardApp(tk.Tk):
 
         board_id = self.treeview_boardlist.item(selection, 'values')[0]
 
-        #
+        # 데이터 베이스 연결
         conn = sqlite3.connect('py_board.db')
         curs = conn.cursor()
 
-        #
+        # sql 문 실행
         sql = 'DELDTE FROM PY_BOARD WHERE BOARD_ID=:1'
         curs.execute(sql, (board_id))
         conn.commit()
@@ -223,15 +222,14 @@ class BoardInsertDialog(tk.Toplevel):
         super().__init__(parent)
         self.title('새 글 쓰기')
 
-        #
-
+        # 컨트롤변수 선언
         self.textfield_title = tk.Entry(self)
         self.textfield_writer = tk.Entry(self)
         self.textarea_content = scrolledtext.ScrolledText(self)
         self.button_save = tk.Button(self, text='저장', command=self.onclick_save)
         self.button_cancel = tk.Button(self, text='취소', command=self.destroy)
 
-        #
+        # 컨트롤 배치
         tk.Label(self, text='제목').pack(side=tk.TOP, padx=5, pady=5)
         self.textfield_title.pack(side=tk.TOP, padx=5, pady=5, fill=tk.X)
         tk.Label(self, text='작성자').pack(side=tk.TOP, padx=5, pady=5)
@@ -282,7 +280,7 @@ class BoardUpdateDialog(tk.Toplevel):
         self.writer = row[2]
         self.content = row[3]
 
-
+        # 컨트롤 변수 선언
         self.textfield_title = tk.Entry(self)
         self.textfield_writer = tk.Entry(self)
         self.textarea_content = scrolledtext.ScrolledText(self)
@@ -291,7 +289,7 @@ class BoardUpdateDialog(tk.Toplevel):
 
         self.textfield_title.insert(0, self.title)
         self.textfield_writer.insert(0, self.writer)
-        self.textarea_content.
+        self.textarea_content.insert(tk.END, self.content)
 
         # 컨트롤 배치
         tk.Label(self, text='제목').pack(side=tk.TOP, padx=5, pady=5)
@@ -313,7 +311,7 @@ class BoardUpdateDialog(tk.Toplevel):
         writer = self.textfield_writer.get()
         content = self.textarea_content.get('1.0', tk.END)
 
-        #
+        # 데이터베이스 연결
         conn = sqlite3.connect('py_board.db')
         curs = conn.cursor()
 
@@ -322,7 +320,7 @@ class BoardUpdateDialog(tk.Toplevel):
         curs.execute(aql, (title, writer, content, self.board_id))
         conn.commit()
 
-        #
+        # 데이터베이스 연결 해제
         curs.close()
         conn.close()
 
